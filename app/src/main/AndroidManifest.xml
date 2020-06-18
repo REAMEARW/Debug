@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tw.pu.edu.tw.s1071465.finalproject">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/guava2"
+        android:roundIcon="@drawable/guava2"
+        android:label="水果翻牌"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity4"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity3"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity2"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
