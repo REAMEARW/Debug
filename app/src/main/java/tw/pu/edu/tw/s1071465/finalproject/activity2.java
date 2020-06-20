@@ -30,8 +30,8 @@ public class activity2 extends AppCompatActivity implements GestureDetector.OnGe
     }
     public void next(View v) {
         Intent it = new Intent(activity2.this, activity3.class);
-        startActivity(it);
-        finish();
+        startActivity(it);//開始activity3
+        finish();//結束此Activity
     }
 
     @Override
@@ -63,18 +63,24 @@ public class activity2 extends AppCompatActivity implements GestureDetector.OnGe
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if (e1.getX()>e2.getX()){  //向左滑動
             PictureNo++;
-
+            if(PictureNo==5)
+            {
+                PictureNo=5;
+            }
         }
         else{     //向右滑動
             PictureNo--;
-
+            if(PictureNo<=0)
+            {
+                PictureNo=0;
+            }
         }
         ShowPicture();
 
-        return false;
+        return false;//持續偵測
     }
     public void  ShowPicture (){
-
+        //設定滑動切換圖檔資源
         switch(PictureNo){
             case 0:{
                 img.setImageResource(R.drawable.a0);

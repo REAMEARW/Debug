@@ -23,18 +23,16 @@ public class activity3 extends AppCompatActivity implements GestureDetector.OnGe
         gd=new GestureDetector(this,this); //手勢
         img=(ImageView)findViewById(R.id.img);
         img.setOnTouchListener(this);
-        int PictureNo,totalPicture;
+        int PictureNo;
         PictureNo=0;
-        totalPicture =3;
-
         getSupportActionBar().hide(); //隱藏標題
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN); //隱藏狀態
     }
     public void Go(View v)
     {
         Intent it = new Intent(activity3.this, activity4.class);
-        startActivity(it);
-        finish();
+        startActivity(it);//開啟activity4
+        finish();//結束此activity
     }
 
     @Override
@@ -66,19 +64,25 @@ public class activity3 extends AppCompatActivity implements GestureDetector.OnGe
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if (e1.getX()>e2.getX()){  //向左滑動
             PictureNo++;
-
+            if(PictureNo==2)
+            {
+                PictureNo=2;
+            }
         }
         else{     //向右滑動
             PictureNo--;
-
+            if(PictureNo<=0)
+            {
+                PictureNo=0;
+            }
         }
         ShowPicture();
 
-        return false;
+        return false;//持續偵測
     }
 
     public void  ShowPicture (){
-
+        //設定滑動切換圖檔資源
         switch(PictureNo){
             case 0:{
                 img.setImageResource(R.drawable.b1);

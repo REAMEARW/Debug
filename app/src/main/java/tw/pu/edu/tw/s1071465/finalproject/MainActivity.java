@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void start(View v) {
         Intent it = new Intent(MainActivity.this, activity2.class);
-        startActivity(it);
-        finish();
+        startActivity(it);//開始activity2
+        finish();//結束此Activity
     }
     public void end(View v){
-        finish();
+        finish();//當按下按鈕結束此Activity
     }
 }
